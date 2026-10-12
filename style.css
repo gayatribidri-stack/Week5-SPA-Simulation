@@ -1,0 +1,373 @@
+
+/* ---------- General Styles ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #5367d9;
+    --primary-dark: #3549b5;
+    --background: #f5f7fc;
+    --surface: #ffffff;
+    --text: #202844;
+    --muted: #707991;
+    --border: #e5e9f3;
+    --success: #16845b;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #f0a52b;
+    outline-offset: 4px;
+}
+
+/* ---------- Header and Navigation ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 7%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-nav a {
+    padding: 9px 15px;
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background: #edf0ff;
+    color: var(--primary-dark);
+}
+
+/* ---------- Main Container ---------- */
+.container {
+    width: min(1100px, 90%);
+    margin: 36px auto;
+    flex: 1;
+}
+
+.page-content {
+    animation: fade-in 0.25s ease-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.page-title {
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.page-description {
+    color: var(--muted);
+    max-width: 650px;
+    margin-bottom: 28px;
+}
+
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 5px 20px rgba(36, 49, 91, 0.04);
+}
+
+.panel h2 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.stat-number {
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.stat-note {
+    color: var(--success);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* ---------- Buttons and Task Form ---------- */
+.button {
+    display: inline-block;
+    border: none;
+    border-radius: 9px;
+    background: var(--primary);
+    color: white;
+    padding: 11px 17px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background: var(--primary-dark);
+}
+
+.button-secondary {
+    background: #edf0ff;
+    color: var(--primary-dark);
+}
+
+.button-secondary:hover {
+    background: #dfe4ff;
+}
+
+.task-form {
+    display: flex;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid #ccd3e3;
+    border-radius: 9px;
+    background: white;
+    color: var(--text);
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    flex-shrink: 0;
+}
+
+.task-name {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-name {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.delete-button {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: white;
+    padding: 6px 9px;
+    color: #a33b46;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: #fff0f1;
+}
+
+.feedback {
+    min-height: 24px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.empty-state {
+    color: var(--muted);
+    padding: 18px 0;
+}
+
+/* ---------- About Page ---------- */
+.feature-list {
+    padding-left: 22px;
+}
+
+.feature-list li {
+    margin: 10px 0;
+}
+
+.info-banner {
+    background: #edf0ff;
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 18px;
+    color: #3549a0;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    text-align: center;
+    padding: 22px 16px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 700px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 5%;
+        gap: 14px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .main-nav a {
+        padding: 8px 11px;
+    }
+
+    .container {
+        width: 90%;
+        margin: 26px auto;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .task-form {
+        flex-direction: column;
+    }
+
+    .task-form .button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Productivity Hub to organize study tasks and goals.">
+    <title>Student Productivity Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="#dashboard" aria-label="Student Productivity Hub home">
+            <span class="logo-icon" aria-hidden="true">S</span>
+            <span>StudyHub</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#dashboard" data-route="dashboard">Dashboard</a>
+            <a href="#tasks" data-route="tasks">My Tasks</a>
+            <a href="#about" data-route="about">About</a>
+        </nav>
+    </header>
+
+    <main id="app-content" class="container" tabindex="-1">
+        <p class="loading-message">Loading your workspace...</p>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="current-year"></span> StudyHub. Learn at your own pace.</p>
+    </footer>
+</body>
+</html>
